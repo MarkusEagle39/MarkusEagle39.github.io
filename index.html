@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>QR Code Scanner to export text</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css"
+    />
+  </head>
+  <body>
+    <section class="section">
+      <div class="container">
+        <div class="columns">
+          <h1>QR Code Scanner</h1>
+        </div>
+        <div id="container">
+          <video id="preview" autoplay="true"></video>
+        </div>
+        <br />
+        <div class="btn-group btn-group-toggle mb-5" data-toggle="buttons">
+          <label class="btn btn-primary active">
+            <input
+              type="radio"
+              name="options"
+              value="1"
+              autocomplete="off"
+              checked
+            />
+            Front Camera
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" value="2" autocomplete="off" />
+            Back Camera
+          </label>
+        </div>
+        <div>
+          <fieldset>
+            <legend>Text Code</legend>
+            <textarea id="textArea"></textarea>
+            <button id="btnSave">save config</button>
+          </fieldset>
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+
+    <style>
+      #preview {
+        width: 300px;
+        height: 300px;
+        overflow: hidden;
+        object-fit: cover;
+      }
+
+      textarea {
+        width: 300px;
+        height: 300px;
+        padding: 5px;
+      }
+    </style>
+    
+  </body>
+</html>

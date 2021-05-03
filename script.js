@@ -5,9 +5,14 @@ let scanner = new Instascan.Scanner({
 var enter = String.fromCharCode(13); // Enter
 
 scanner.addListener("scan", function (content) {
-  console.log("teste", content);
 
-  document.getElementById("textArea").value += content + " " + enter;
+  // console.log("teste", content);
+
+  var res = content.slice(0, 44);
+  
+  // console.log("res", res);
+
+  document.getElementById("textArea").value += res + " " + enter;
 
 });
 

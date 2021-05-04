@@ -6,11 +6,9 @@ let scanner = new Instascan.Scanner({
 var enter = String.fromCharCode(13); // Enter
 
 scanner.addListener("scan", function (content) {
-
   var res = content.slice(0, 44);
-  
-  document.getElementById("textArea").value += res + " " + enter;
 
+  document.getElementById("textArea").value += res + " " + enter;
 });
 
 // Front Camera or Back Camera
@@ -43,28 +41,27 @@ Instascan.Camera.getCameras()
     console.error(e);
   });
 
-   // Download
+// Download
 const downloadToFile = (content, filename, contentType) => {
-  const a = document.createElement('a');
-  const file = new Blob([content], {type: contentType});
-  
-  a.href= URL.createObjectURL(file);
+  const a = document.createElement("a");
+  const file = new Blob([content], { type: contentType });
+
+  a.href = URL.createObjectURL(file);
   a.download = filename;
   a.click();
 
-	URL.revokeObjectURL(a.href);
+  URL.revokeObjectURL(a.href);
 };
 
-document.querySelector('#btnSave').addEventListener('click', () => {
-  const textArea = document.querySelector('textarea');
+document.querySelector("#btnSave").addEventListener("click", () => {
+  const textArea = document.querySelector("textarea");
 
   const typee = document.querySelector('input[name="typ"]:checked').value;
 
-  
-  downloadToFile(textArea.value, 'my-new-file.' + typee , 'text/plain');
+  downloadToFile(textArea.value, "my-new-file." + typee, "text/plain");
 });
 
-// 
+//
 
 var video = document.getElementById("video");
 

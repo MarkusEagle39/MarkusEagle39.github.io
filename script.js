@@ -1,3 +1,4 @@
+// scanner QR
 let scanner = new Instascan.Scanner({
   video: document.getElementById("preview"),
 });
@@ -6,33 +7,13 @@ var enter = String.fromCharCode(13); // Enter
 
 scanner.addListener("scan", function (content) {
 
-  // console.log("teste", content);
-
   var res = content.slice(0, 44);
   
-  // console.log("res", res);
-
   document.getElementById("textArea").value += res + " " + enter;
 
 });
 
-const downloadToFile = (content, filename, contentType) => {
-  const a = document.createElement('a');
-  const file = new Blob([content], {type: contentType});
-  
-  a.href= URL.createObjectURL(file);
-  a.download = filename;
-  a.click();
-
-	URL.revokeObjectURL(a.href);
-};
-
-document.querySelector('#btnSave').addEventListener('click', () => {
-  const textArea = document.querySelector('textarea');
-  
-  downloadToFile(textArea.value, 'my-new-file.txt', 'text/plain');
-});
-
+// Front Camera or Back Camera
 
 Instascan.Camera.getCameras()
   .then(function (cameras) {
@@ -61,6 +42,29 @@ Instascan.Camera.getCameras()
   .catch(function (e) {
     console.error(e);
   });
+
+   // Download
+const downloadToFile = (content, filename, contentType) => {
+  const a = document.createElement('a');
+  const file = new Blob([content], {type: contentType});
+  
+  a.href= URL.createObjectURL(file);
+  a.download = filename;
+  a.click();
+
+	URL.revokeObjectURL(a.href);
+};
+
+document.querySelector('#btnSave').addEventListener('click', () => {
+  const textArea = document.querySelector('textarea');
+
+  const typee = document.querySelector('input[name="typ"]:checked').value;
+
+  
+  downloadToFile(textArea.value, 'my-new-file.' + typee , 'text/plain');
+});
+
+// 
 
 var video = document.getElementById("video");
 

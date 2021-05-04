@@ -1,0 +1,37 @@
+body {
+  display: flex;
+  flex-direction: row;
+}
+.section{
+  text-align: center;
+}
+.theme{
+  font-weight: bold;
+  font-size: x-large;
+}
+
+#preview {
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+textarea {
+  width: 300px;
+  height: 200px;
+  padding: 5px;
+}
+.btnSave {
+  display: inline-block;
+  padding: 20px 30px;
+  font-size: 20px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 15px;
+}

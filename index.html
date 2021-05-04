@@ -5,6 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <link rel="stylesheet" href="style.css" />
+
     <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -19,8 +21,10 @@
   <body>
     <section class="section">
       <div class="container">
-        <div class="columns">
-          <h1>QR Code Scanner to export text</h1>
+        <div class="theme">
+          <p>
+            QR Code Scanner to export
+          </p>
         </div>
         <div id="container">
           <video id="preview" autoplay="true"></video>
@@ -46,28 +50,30 @@
           <fieldset>
             <legend>Text Code</legend>
             <textarea id="textArea"></textarea>
-            <button id="btnSave">save config</button>
+
+            <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
+              <label class="btn btn-primary active">
+                <input
+                  type="radio"
+                  name="typ"
+                  value="txt"
+                  autocomplete="off"
+                  checked
+                />
+                TXT (texto)
+              </label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="typ" value="csv" autocomplete="off" />
+                CSV (tabela)
+              </label>
+            </div>
+
+            <button class="btnSave" id="btnSave">DOWNLOAD</button>
           </fieldset>
         </div>
       </div>
     </section>
 
     <script src="script.js"></script>
-
-    <style>
-      #preview {
-        width: 300px;
-        height: 300px;
-        overflow: hidden;
-        object-fit: cover;
-      }
-
-      textarea {
-        width: 300px;
-        height: 300px;
-        padding: 5px;
-      }
-    </style>
-    
   </body>
 </html>
